@@ -10,7 +10,7 @@ function useSignup() {
     retry: false,
     onSuccess: () => {
       toast.success(
-        "Account created successfully /n Please check your inbox to verify your account",
+        "Account created successfully \n Please check your inbox to verify your account",
       );
       navigate("/", { replace: true });
     },
