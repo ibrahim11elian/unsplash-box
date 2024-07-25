@@ -11,6 +11,7 @@ import Collection from "./pages/Collection";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ function App() {
             <Route path="collections" element={<Collections />} />
             <Route path="collections/:id" element={<Collection />} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
       <Toaster />
