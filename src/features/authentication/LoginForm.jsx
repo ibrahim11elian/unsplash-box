@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import GoogleSignInButton from "../../ui/GoogleSignInButton";
 
 function LoginForm() {
-  const [email, setEmail] = useState("todecor411@qodiq.com");
-  const [password, setPassword] = useState("12345678");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState(null);
   const { login, isLoggingIn } = useLogin();
 
