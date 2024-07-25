@@ -4,7 +4,7 @@ function AppLayout() {
   return (
     <>
       <Header />
-      <main className="h-[calc(100dvh)] bg-white pt-[3.9rem]">
+      <main className="h-[calc(100dvh)] bg-gray-50 pt-[3.9rem]">
         <Outlet />
       </main>
     </>

@@ -39,7 +39,7 @@ function SearchResult() {
     return <Empty resource={"images based on this query"} />;
 
   return (
-    <section className="bg-white px-5 pt-8 sm:px-14">
+    <section className="bg-gray-50 px-5 pt-8 sm:px-14">
       <MasonryGallery>
         {images.map((image) => (
           <ImageGallery

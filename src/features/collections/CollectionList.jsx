@@ -16,7 +16,7 @@ function CollectionsList() {
     );
 
   return (
-    <ul className="grid grid-cols-1 gap-8 bg-white sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-8 bg-inherit sm:grid-cols-2 lg:grid-cols-3">
       <Menus>
         {collections.map((collection) => (
           <CollectionCard key={collection.name} collection={collection} />

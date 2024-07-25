@@ -44,7 +44,7 @@ function CollectionDetails() {
   if (images.length === 0) return <Empty resource={"images"} />;
 
   return (
-    <div className="bg-white px-10 pb-5 sm:px-20">
+    <div className="bg-gray-50 px-10 pb-5 sm:px-20">
       <div className="my-10 flex flex-col items-center justify-center gap-3">
         <GradientTitle>{collection.name}</GradientTitle>
         <p className="text-center font-light text-gray-900 sm:w-1/2 md:w-1/3">
