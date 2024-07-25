@@ -60,7 +60,7 @@ function Navigation() {
           </NavLink>
         </li>
 
-        <li>
+        <li className="m-auto w-fit">
           <button
             onClick={toggleDarkMode}
             className="rounded p-2 text-lg text-gray-800 hover:bg-gray-300"
