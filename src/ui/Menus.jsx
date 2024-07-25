@@ -32,7 +32,7 @@ function Toggle({ id }) {
     e.stopPropagation();
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
-      x: window.scrollX + rect.x - rect.width * 4,
+      x: window.scrollX + rect.x - rect.width * 6,
       y: window.scrollY + rect.y + rect.height + 8,
     });
 
