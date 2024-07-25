@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const ConfirmDelete = ({ resourceName, onConfirm, disabled, onCloseModal }) => {
   return (
-    <div className="flex w-96 flex-col gap-3">
+    <div className="flex w-full flex-col gap-3">
       <h3 className="font-bold text-gray-800">Delete {resourceName}</h3>
       <p className="mb-3 text-gray-500">
         Are you sure you want to delete this {resourceName} permanently? This
