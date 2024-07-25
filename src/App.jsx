@@ -12,10 +12,11 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import PageNotFound from "./pages/PageNotFound";
+import { useDarkMode } from "./context/DarkMode";
 
 function App() {
   const queryClient = new QueryClient();
-
+  const { isDarkMode } = useDarkMode();
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
@@ -45,7 +46,25 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-      <Toaster />
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            backgroundColor: isDarkMode ? "#18212f" : "#fff",
+            color: isDarkMode ? "#f3f4f6" : "#1f2937",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
