@@ -1,12 +1,18 @@
+import toast from "react-hot-toast";
 import Menus from "../../ui/Menus";
 import Spinner from "../../ui/Spinner";
 import CollectionCard from "./CollectionCard";
 import useCollections from "./useCollections";
 
 function CollectionsList() {
-  const { isLoading, collections } = useCollections();
+  const { isLoading, collections, error } = useCollections();
 
   if (isLoading) return <Spinner />;
+
+  if (error) {
+    toast.error(error.message);
+    return;
+  }
 
   if (!collections?.length)
     return (

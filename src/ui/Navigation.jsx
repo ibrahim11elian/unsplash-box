@@ -37,7 +37,7 @@ function Navigation() {
       >
         <li className="m-auto w-fit">
           <NavLink
-            to="/"
+            to="/home"
             className={({ isActive }) =>
               `flex items-center rounded px-3 py-1.5 text-sm text-gray-600 transition-colors duration-300 hover:bg-gray-200 hover:text-gray-900 sm:px-4 sm:py-2 sm:text-base ${
                 isActive ? "bg-gray-200 text-gray-900" : ""

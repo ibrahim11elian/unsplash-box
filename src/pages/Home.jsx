@@ -8,7 +8,7 @@ function Home() {
 
       <div className="relative z-10 flex -translate-y-10 flex-col items-center gap-4">
         <h2 className="text-4xl font-semibold text-gray-900">Search</h2>
-        <p className="text-center text-gray-800">
+        <p className="text-center text-gray-600">
           Search high-resolution images from Unsplash
         </p>
 
