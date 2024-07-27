@@ -9,8 +9,12 @@ import useCollections from "../collections/useCollections";
 import useTitle from "../../hooks/useTitle";
 
 function ImageDetails() {
-  const { imageData, isLoading } = useImage();
-  const { collections, isLoading: isLoadingCollection } = useCollections();
+  const { imageData, isLoading, error } = useImage();
+  const {
+    collections,
+    isLoading: isLoadingCollection,
+    error: collectionError,
+  } = useCollections();
 
   useTitle(imageData?.slug.split("-").join(" "));
 
@@ -20,6 +24,10 @@ function ImageDetails() {
         <Spinner size="big" />
       </div>
     );
+
+  if (error || collectionError) {
+    return <div className="w-full text-gray-800"> {error.message}</div>;
+  }
 
   const collectionsWithImage = filterCollectionIncludeImage(
     collections,
