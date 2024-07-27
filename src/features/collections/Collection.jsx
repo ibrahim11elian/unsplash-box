@@ -12,6 +12,7 @@ import useTitle from "../../hooks/useTitle";
 function CollectionDetails() {
   const { id: collectionId } = useParams();
   const {
+    imageCount,
     collection,
     images,
     fetchNextPage,
@@ -20,8 +21,6 @@ function CollectionDetails() {
     isFetchingNextPage,
     error,
   } = useCollectionImages(collectionId);
-
-  const numPhotos = images.length || 0;
 
   const { ref, inView } = useInView();
 
@@ -48,7 +47,7 @@ function CollectionDetails() {
       <div className="my-10 flex flex-col items-center justify-center gap-3">
         <GradientTitle>{collection.name}</GradientTitle>
         <p className="text-center font-light text-gray-900 sm:w-1/2 md:w-1/3">
-          {numPhotos} {numPhotos > 1 ? "photos" : "photo"}
+          {imageCount} {imageCount > 1 ? "photos" : "photo"}
         </p>
       </div>
 

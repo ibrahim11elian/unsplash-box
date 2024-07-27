@@ -17,9 +17,11 @@ function useCollectionImages(collectionId) {
   });
 
   const images = data?.pages.flatMap((page) => page.images.results) || [];
-  // get the collection data from the data
+  // get the collection metadata from the data
   const collection = data?.pages[0]?.collection || {};
+  const imageCount = data?.pages[0]?.imageCount || 0;
   return {
+    imageCount,
     collection,
     images,
     fetchNextPage,

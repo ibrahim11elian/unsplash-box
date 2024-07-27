@@ -3,6 +3,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
   limit,
@@ -64,6 +65,14 @@ export const getCollectionImages = async (
 
     const hasMore = snapshot.docs.length === pageSize;
 
+    // Fetch the total image count for the collection
+    const countQuery = query(
+      imagesCollectionRef,
+      where("collectionId", "==", collectionId),
+    );
+    const countSnapshot = await getCountFromServer(countQuery);
+    const imageCount = countSnapshot.data().count;
+
     return {
       collection: collectionData,
       images: {
@@ -71,6 +80,7 @@ export const getCollectionImages = async (
         hasMore,
         nextCursor: lastVisible,
       },
+      imageCount,
     };
   } catch (error) {
     console.log(error);
@@ -90,8 +100,9 @@ export const getUserCollections = async (userId) => {
         const collectionData = { id: doc.id, ...doc.data() };
         const {
           images: { results: images },
+          imageCount,
         } = await getCollectionImages(doc.id);
-        return { ...collectionData, images };
+        return { ...collectionData, images, imageCount };
       }),
     );
     return collections;

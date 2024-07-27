@@ -28,14 +28,14 @@ function imageClass(length, index) {
 
 const CollectionCard = ({ collection }) => {
   const { deleteCollection, isDeleting } = useDeleteCollection();
-  const { name, images, id } = collection;
-  const photoCount = images.length || 0;
+  const { name, images, id, imageCount } = collection;
+
   return (
     <li>
       {/* Card Image */}
       <Link to={`/collections/${id}`}>
         <div
-          className={`${!photoCount ? "hidden" : ""} grid h-[15rem] gap-[0.1rem] xl:h-[20rem] ${getGridClass(images.length)} overflow-hidden rounded-md`}
+          className={`${!imageCount ? "hidden" : ""} grid h-[15rem] gap-[0.1rem] xl:h-[20rem] ${getGridClass(images.length)} overflow-hidden rounded-md`}
         >
           {images.length &&
             images
@@ -87,7 +87,7 @@ const CollectionCard = ({ collection }) => {
             </Menus.Menu>
           </Modal>
         </div>
-        <p className="text-sm text-gray-400">{photoCount} photos</p>
+        <p className="text-sm text-gray-400">{imageCount} photos</p>
       </div>
     </li>
   );
